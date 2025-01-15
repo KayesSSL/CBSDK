@@ -1,62 +1,56 @@
-# Xcode
-#
-# gitignore contributors: remember to update Global/Xcode.gitignore, Objective-C.gitignore & Swift.gitignore
+# General macOS files
+.DS_Store
+*.DS_Store
 
-## User settings
-xcuserdata/
+# Xcode specific files
+*.xcuserdata
+*.xcworkspace
+*.xcsettings
+DerivedData/
+.idea/
+*.mode1v3
+*.pbxuser
 
-## Obj-C/Swift specific
-*.hmap
+# Logs and temporary files
+*.log
+*.tmp
 
-## App packaging
-*.ipa
-*.dSYM.zip
+# Build artifacts
+build/
+*.o
+*.a
+*.so
 *.dSYM
 
-## Playgrounds
-timeline.xctimeline
-playground.xcworkspace
+# CocoaPods specific files
+Pods/
+Podfile.lock
+project.xcworkspace/
 
-# Swift Package Manager
-#
-# Add this line if you want to avoid checking in source code from Swift Package Manager dependencies.
-# Packages/
-# Package.pins
-# Package.resolved
-# *.xcodeproj
-#
-# Xcode automatically generates this directory with a .xcworkspacedata file and xcuserdata
-# hence it is not needed unless you have added a package configuration file to your project
-# .swiftpm
-
+# SPM specific files
 .build/
+Package.resolved
 
-# CocoaPods
-#
-# We recommend against adding the Pods directory to your .gitignore. However
-# you should judge for yourself, the pros and cons are mentioned at:
-# https://guides.cocoapods.org/using/using-cocoapods.html#should-i-check-the-pods-directory-into-source-control
-#
-# Pods/
-#
-# Add this line if you want to avoid checking in source code from the Xcode workspace
-# *.xcworkspace
-
-# Carthage
-#
-# Add this line if you want to avoid checking in source code from Carthage dependencies.
-# Carthage/Checkouts
-
+# Carthage specific files
 Carthage/Build/
 
-# fastlane
-#
-# It is recommended to not store the screenshots in the git repo.
-# Instead, use fastlane to re-generate the screenshots whenever they are needed.
-# For more information about the recommended setup visit:
-# https://docs.fastlane.tools/best-practices/source-control/#source-control
+# XCFrameworks (exclude the ones you want to include)
+!*.xcframework
 
-fastlane/report.xml
-fastlane/Preview.html
-fastlane/screenshots/**/*.png
-fastlane/test_output
+# Ignore unnecessary metadata and files inside XCFrameworks
+*.swp
+*.swo
+*.swx
+*.xcframework.zip
+
+# Git-related files
+.git/
+.gitignore
+
+# Ignore generated documentation
+Documentation/
+
+# Optional: If you're generating or uploading archives
+*.zip
+*.tar.gz
+*.tgz
