@@ -83,10 +83,8 @@ public class CBSDKHelper : NSObject{
             methodName: "Link",
             clientId: clientId,
             clientSecret: clientSecret,
-            guId: "",
             mobileNumber: mobile,
             nidNumber: nid,
-            transactionAmount: ""
         )
         flutterMethodChannel.invokeMethod("initializeSdk", arguments: methodDetails.toJson()) { _ in
             
@@ -103,10 +101,7 @@ public class CBSDKHelper : NSObject{
             methodName: "Registration",
             clientId: clientId,
             clientSecret: clientSecret,
-            guId: "",
-            mobileNumber: mobile,
-            nidNumber: "",
-            transactionAmount: ""
+            registrationArguments: null,
         )
         
         
@@ -127,7 +122,6 @@ public class CBSDKHelper : NSObject{
             clientId: clientId,
             clientSecret: clientSecret,
             guId: GuiId,
-            mobileNumber: "",
             nidNumber: nid,
             transactionAmount: transactionAmount
         )
@@ -264,7 +258,9 @@ public class CBSDKHelper : NSObject{
             if self.sourceVC.presentedViewController == nil {
                 let flutterVC = FlutterViewController(engine: self.flutterEngine!, nibName: nil, bundle: nil)
                 flutterVC.modalPresentationStyle = .fullScreen
-                flutterVC.isModalInPresentation = true
+                if #available(iOS 13, *) {
+                    flutterVC.isModalInPresentation = true
+                }
                 self.sourceVC.present(flutterVC, animated: true, completion: nil)
                 flutterVC.presentationController?.delegate = self
             } else {

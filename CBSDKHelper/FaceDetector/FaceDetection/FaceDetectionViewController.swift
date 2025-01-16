@@ -34,7 +34,8 @@ class FaceDetectionViewController: UIViewController {
     var delegate: CBFaceDetectionSDKDelegate?
     let session = AVCaptureSession()
     var previewLayer: AVCaptureVideoPreviewLayer!
-    let activityView = UIActivityIndicatorView(style: .large)
+//    let activityView = UIActivityIndicatorView(style: .large)
+    var  activityView : UIActivityIndicatorView!
     var strings : [String:String]?
     var blinkImage: UIImage?
     {
@@ -98,6 +99,12 @@ class FaceDetectionViewController: UIViewController {
         super.viewDidLoad()
         
         self.view = contentView
+        
+        if #available(iOS 13, *) {
+             activityView = UIActivityIndicatorView(style: .large)
+        }else{
+            activityView = UIActivityIndicatorView()
+        }
         
         DispatchQueue.main.asyncAfter(deadline: .now()+0.05, execute: {
             
