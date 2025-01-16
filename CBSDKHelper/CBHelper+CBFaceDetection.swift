@@ -10,7 +10,7 @@ import UIKit
 extension CBSDKHelper : CBFaceDetectionSDKDelegate{
    
     
-     func images(smile: String, blink: String) {
+     public func images(smile: String, blink: String) {
         let messageDictionary = ["smile" : smile, "blink":blink]
         let jsonData = try! JSONSerialization.data(withJSONObject: messageDictionary)
         let jsonString = NSString(data: jsonData, encoding: String.Encoding.utf8.rawValue)
@@ -20,11 +20,11 @@ extension CBSDKHelper : CBFaceDetectionSDKDelegate{
         
     }
     
-    func userCancelled(_ userBack: String) {
+    public func userCancelled(_ userBack: String) {
         
     }
     
-    func errorOccured(_ error: String) {
+    public func errorOccured(_ error: String) {
         
     }
     

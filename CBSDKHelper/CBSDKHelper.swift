@@ -10,7 +10,7 @@ import FlutterPluginRegistrant
 import UIKit
 
 
-@objc protocol CBSDKHelperDelegate: AnyObject {
+@objc public protocol CBSDKHelperDelegate: AnyObject {
     @objc optional func registrationSuccess(data: [String: Any])
     @objc optional func accountLinkingSuccess(guId: String)
     @objc optional func balanceRetrievalSuccess(balance: String)
@@ -30,7 +30,7 @@ enum MethodName : String{
 }
 
 
-class CBSDKHelper : NSObject{
+public class CBSDKHelper : NSObject{
     private var flutterEngine: FlutterEngine?
     private let CHANNEL = "cashbaba_merchant_sdk_method_channel"
     private let flutterEngineId = "123456789"
@@ -280,7 +280,7 @@ class CBSDKHelper : NSObject{
 extension CBSDKHelper: UIAdaptivePresentationControllerDelegate {
     
     
-    func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
+    public func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         flutterEngine?.destroyContext()
         flutterMethodChannel = nil
       
