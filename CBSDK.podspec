@@ -6,46 +6,52 @@ Pod::Spec.new do |s|
   s.license          = { :type => 'GNU', :file => 'LICENSE' }
   s.author           = { 'Imrul Kayes' => 'imrul.kayes@sslwireless.com' }
   s.source           = { :git => 'https://github.com/KayesSSL/CBSDK.git', :tag => s.version }
-  s.default_subspecs = 'Release'
+  s.source_files = 'CBSDKHelper/**/*'
+  
 
 
-  s.ios.deployment_target = '11.0'
+  s.ios.deployment_target = '15.1'
 
-  # Debug Subspec
-  s.subspec 'Debug' do |debug|
-    debug.vendored_frameworks = [
-      'Debug/App.xcframework',
-      'Debug/camera_avfoundation.xcframework',
-      'Debug/connectivity_plus.xcframework',
-      'Debug/device_info_plus.xcframework',
-      'Debug/file_picker.xcframework',
-      'Debug/flutter_localization.xcframework',
-      'Debug/image_picker_ios.xcframework',
-      'Debug/path_provider_foundation.xcframework',
-      'Debug/share_plus.xcframework',
-      'Debug/shared_preferences_foundation.xcframework',
-      'Debug/smart_auth.xcframework',
-      'Debug/FlutterPluginRegistrant.xcframework',
-      'Debug/Flutter.xcframework'
-    ]
+  s.subspec 'CBSDK' do |cbsdk| 
+    cbsdk.vendored_frameworks = 'App.xcframework' 
+  end 
+  s.subspec 'camera_avfoundation' do |camera_avfoundation| 
+    camera_avfoundation.vendored_frameworks = 'camera_avfoundation.xcframework' 
+  end 
+  s.subspec 'connectivity_plus' do |connectivity_plus| 
+    connectivity_plus.vendored_frameworks = 'connectivity_plus.xcframework' 
+  end 
+  s.subspec 'device_info_plus' do |device_info_plus| 
+    device_info_plus.vendored_frameworks = 'device_info_plus.xcframework' 
+  end 
+  s.subspec 'file_picker' do |file_picker| 
+    file_picker.vendored_frameworks = 'file_picker.xcframework' 
+  end 
+  s.subspec 'flutter_localization' do |flutter_localization| 
+    flutter_localization.vendored_frameworks = 'flutter_localization.xcframework' 
+  end 
+  s.subspec 'image_picker_ios' do |image_picker_ios| 
+    image_picker_ios.vendored_frameworks = 'image_picker_ios.xcframework' 
+  end 
+  s.subspec 'path_provider_foundation' do |path_provider_foundation| 
+    path_provider_foundation.vendored_frameworks = 'path_provider_foundation.xcframework' 
+  end 
+  s.subspec 'share_plus' do |share_plus| 
+    share_plus.vendored_frameworks = 'share_plus.xcframework' 
+  end 
+  s.subspec 'shared_preferences_foundation' do |shared_preferences_foundation| 
+    shared_preferences_foundation.vendored_frameworks = 'shared_preferences_foundation.xcframework' 
+  end 
+  s.subspec 'smart_auth' do |smart_auth| 
+    smart_auth.vendored_frameworks = 'smart_auth.xcframework' 
+  end 
+  s.subspec 'FlutterPluginRegistrant' do |flutterpluginregistrant| 
+    flutterpluginregistrant.vendored_frameworks = 'FlutterPluginRegistrant.xcframework' 
   end
-
-  # Release Subspec
-  s.subspec 'Release' do |release|
-    release.vendored_frameworks = [
-      'Release/App.xcframework',
-      'Release/camera_avfoundation.xcframework',
-      'Release/connectivity_plus.xcframework',
-      'Release/device_info_plus.xcframework',
-      'Release/file_picker.xcframework',
-      'Release/flutter_localization.xcframework',
-      'Release/image_picker_ios.xcframework',
-      'Release/path_provider_foundation.xcframework',
-      'Release/share_plus.xcframework',
-      'Release/shared_preferences_foundation.xcframework',
-      'Release/smart_auth.xcframework',
-      'Release/FlutterPluginRegistrant.xcframework',
-      'Release/Flutter.xcframework'
-    ]
+  s.subspec 'Flutter' do |flutter| 
+    flutter.vendored_frameworks = 'Flutter.xcframework'
   end
+  
+
+  
 end
