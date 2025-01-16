@@ -84,7 +84,7 @@ public class CBSDKHelper : NSObject{
             clientId: clientId,
             clientSecret: clientSecret,
             mobileNumber: mobile,
-            nidNumber: nid,
+            nidNumber: nid
         )
         flutterMethodChannel.invokeMethod("initializeSdk", arguments: methodDetails.toJson()) { _ in
             
@@ -101,7 +101,7 @@ public class CBSDKHelper : NSObject{
             methodName: "Registration",
             clientId: clientId,
             clientSecret: clientSecret,
-            registrationArguments: null,
+            registrationArguments: nil
         )
         
         
