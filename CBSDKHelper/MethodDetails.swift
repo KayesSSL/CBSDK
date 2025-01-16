@@ -29,7 +29,7 @@ struct MethodDetails {
     }
 }
 
-struct RegistrationArguments {
+public struct RegistrationArguments {
     var mobileNo: String?
     var nidNo: String?
     var dob: String?
@@ -42,6 +42,21 @@ struct RegistrationArguments {
     var tradeLicenseExp: String?
     var tin: String?
     var bin: String?
+    
+    public  init(mobileNo: String? = nil, nidNo: String? = nil, dob: String? = nil, businessType: BusinessType? = nil, gender: Gender? = nil, shopName: String? = nil, emailAddress: String? = nil, contactNo: String? = nil, tradeLicenseNo: String? = nil, tradeLicenseExp: String? = nil, tin: String? = nil, bin: String? = nil) {
+         self.mobileNo = mobileNo
+         self.nidNo = nidNo
+         self.dob = dob
+         self.businessType = businessType
+         self.gender = gender
+         self.shopName = shopName
+         self.emailAddress = emailAddress
+         self.contactNo = contactNo
+         self.tradeLicenseNo = tradeLicenseNo
+         self.tradeLicenseExp = tradeLicenseExp
+         self.tin = tin
+         self.bin = bin
+     }
 
     func toJson() -> [String: String] {
         var data: [String: String] = [:]
@@ -63,7 +78,7 @@ struct RegistrationArguments {
     }
 }
 
-enum BusinessType: String {
+public enum BusinessType: String {
     case personal = "Personal"
     case business = "Business"
 
@@ -77,7 +92,7 @@ enum BusinessType: String {
     }
 }
 
-enum Gender: String {
+public enum Gender: String {
     case male = "Male"
     case female = "Female"
     case other = "Other"

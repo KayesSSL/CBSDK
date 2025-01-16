@@ -41,7 +41,7 @@ public class CBSDKHelper : NSObject{
     private var flutterMethodChannel: FlutterMethodChannel?
     var guidCallback: ((String) -> Void)?
     var result: FlutterResult?
-    weak var delegate: CBSDKHelperDelegate?
+    public var delegate: CBSDKHelperDelegate?
     
     //MARK: - Public Methods
     
@@ -93,7 +93,7 @@ public class CBSDKHelper : NSObject{
         self.methodCall(methodChannel: flutterMethodChannel)
     }
     
-    public func registration( mobile: String) {
+    public func registration(registrationArguments: RegistrationArguments) {
         
         setupSDKPreferences()
         guard let flutterMethodChannel  = self.flutterMethodChannel  else { return }
@@ -101,7 +101,7 @@ public class CBSDKHelper : NSObject{
             methodName: "Registration",
             clientId: clientId,
             clientSecret: clientSecret,
-            registrationArguments: nil
+            registrationArguments: registrationArguments
         )
         
         
