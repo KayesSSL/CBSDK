@@ -9,6 +9,7 @@ struct MethodDetails {
     var nidNumber: String?
     var transactionAmount: String?
     var registrationArguments: RegistrationArguments?
+    var cbSDKEnvType: CBSDKEnvironmentType
 
     func toJson() -> [String: Any?] {
         var data: [String: Any?] = [
@@ -18,7 +19,8 @@ struct MethodDetails {
             "guId": guId,
             "mobileNumber": mobileNumber,
             "nidNumber": nidNumber,
-            "amount": transactionAmount
+            "amount": transactionAmount,
+            "environmentType": cbSDKEnvType.toDisplayString()
         ]
 
         if let registrationData = registrationArguments?.toJson() {
@@ -105,6 +107,20 @@ public enum Gender: String {
             return "Female"
         case .other:
             return "Other"
+        }
+    }
+}
+
+public enum CBSDKEnvironmentType {
+    case live
+    case testBox
+    
+    func toDisplayString() -> String {
+        switch self {
+        case .live:
+            return "Live"
+        case .testBox:
+            return "TestBox"
         }
     }
 }

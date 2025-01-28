@@ -42,14 +42,16 @@ public class CBSDKHelper : NSObject{
     var guidCallback: ((String) -> Void)?
     var result: FlutterResult?
     public var delegate: CBSDKHelperDelegate?
+    private var sdkType: CBSDKEnvironmentType?
     
     //MARK: - Public Methods
     
-    public init(in Vc: UIViewController, with clientId: String,  clientSecret: String,  GuiId: String) {
+    public init(in Vc: UIViewController, with clientId: String,  clientSecret: String,  GuiId: String, sdkEnvType: CBSDKEnvironmentType? = .live) {
         self.sourceVC = Vc
         self.clientId = clientId
         self.clientSecret = clientSecret
         self.GuiId = GuiId
+        self.sdkType = sdkEnvType
     }
     
    
