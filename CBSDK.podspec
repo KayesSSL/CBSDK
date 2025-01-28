@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'CBSDK'
-  s.version          = '0.0.7'
+  s.version          = '0.0.8'
   s.summary          = 'CashBaba SDK for Better Cash transaction experience.'
   s.homepage         = 'https://github.com/KayesSSL/CBSDK.git'
   s.license          = { :type => 'GNU', :file => 'LICENSE' }
