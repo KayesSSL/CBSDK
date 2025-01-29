@@ -23,6 +23,12 @@ class FaceDetectionViewController: UIViewController {
         contentView.recordLabel.text = strings?["smile"] ?? "Smile"
         contentView.imageSmile.label.text = strings?["smile"] ?? "Smile"
         contentView.imageBlink.label.text = strings?["blink"] ?? "Eye Blink"
+        
+        if #available(iOS 13, *) {
+             activityView = UIActivityIndicatorView(style: .large)
+        }else{
+            activityView = UIActivityIndicatorView()
+        }
        
         
         contentView.preview.addSubview(activityView)
@@ -100,11 +106,11 @@ class FaceDetectionViewController: UIViewController {
         
         self.view = contentView
         
-        if #available(iOS 13, *) {
-             activityView = UIActivityIndicatorView(style: .large)
-        }else{
-            activityView = UIActivityIndicatorView()
-        }
+//        if #available(iOS 13, *) {
+//             activityView = UIActivityIndicatorView(style: .large)
+//        }else{
+//            activityView = UIActivityIndicatorView()
+//        }
         
         DispatchQueue.main.asyncAfter(deadline: .now()+0.05, execute: {
             

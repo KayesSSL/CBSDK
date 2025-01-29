@@ -8,6 +8,9 @@
 import Foundation
 import UIKit
 extension UIColor {
+    @nonobjc class var themeColor : UIColor {
+        return UIColor(red: 235/255, green: 118/255, blue: 47/255, alpha: 1)
+    }
     
     @nonobjc class var veryLightPink: UIColor {
         return UIColor(white: 237.0 / 255.0, alpha: 1.0)

@@ -40,7 +40,7 @@ class ExampleImage: UIView{
     
     func blinkBorder(){
         containter.blink()
-        containter.layer.borderColor =  UIColor(red: 0.13, green: 0.1, blue: 0.58, alpha: 1).cgColor
+        containter.layer.borderColor =  UIColor.themeColor.cgColor
     }
     
     func stopAnimation(){

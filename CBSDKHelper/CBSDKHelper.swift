@@ -16,6 +16,7 @@ import UIKit
     @objc optional func balanceRetrievalSuccess(balance: String)
     @objc optional func transactionSuccess(transactionDetails: [String: Any])
     @objc optional func didEncounterError(error: String)
+    @objc optional func userCancelled(message: String)
 }
 
 
@@ -26,6 +27,7 @@ enum MethodName : String{
     case registrationSuccess = "registrationSuccess"
     case transactionSuccess = "transactionSuccess"
     case verifyFace = "verify_face"
+    case userCancelled = "userCancelled"
     
 }
 
@@ -42,11 +44,11 @@ public class CBSDKHelper : NSObject{
     var guidCallback: ((String) -> Void)?
     var result: FlutterResult?
     public var delegate: CBSDKHelperDelegate?
-    private var sdkType: CBSDKEnvironmentType?
+    private var sdkType: CBSDKEnvironmentType = .live
     
     //MARK: - Public Methods
     
-    public init(in Vc: UIViewController, with clientId: String,  clientSecret: String,  GuiId: String, sdkEnvType: CBSDKEnvironmentType? = .live) {
+    public init(in Vc: UIViewController, with clientId: String,  clientSecret: String,  GuiId: String, sdkEnvType: CBSDKEnvironmentType = .live) {
         self.sourceVC = Vc
         self.clientId = clientId
         self.clientSecret = clientSecret
@@ -57,8 +59,8 @@ public class CBSDKHelper : NSObject{
    
     
     
-    public  func  showBalance() { //callback: @escaping (String) -> Void
-        setupSDKPreferences()
+    public  func  showBalance(isShowVC: Bool) { //callback: @escaping (String) -> Void
+        setupSDKPreferences(isShowVC: isShowVC)
         guard let flutterMethodChannel  = self.flutterMethodChannel  else { return }
 //        self.guidCallback = callback
         let methodDetails = MethodDetails(
@@ -68,7 +70,7 @@ public class CBSDKHelper : NSObject{
             guId: GuiId,
             mobileNumber: "",
             nidNumber: "",
-            transactionAmount: ""
+            transactionAmount: "", cbSDKEnvType: self.sdkType
         )
         flutterMethodChannel.invokeMethod("initializeSdk", arguments: methodDetails.toJson()) { _ in
             
@@ -86,7 +88,7 @@ public class CBSDKHelper : NSObject{
             clientId: clientId,
             clientSecret: clientSecret,
             mobileNumber: mobile,
-            nidNumber: nid
+            nidNumber: nid, cbSDKEnvType: self.sdkType
         )
         flutterMethodChannel.invokeMethod("initializeSdk", arguments: methodDetails.toJson()) { _ in
             
@@ -103,7 +105,7 @@ public class CBSDKHelper : NSObject{
             methodName: "Registration",
             clientId: clientId,
             clientSecret: clientSecret,
-            registrationArguments: registrationArguments
+            registrationArguments: registrationArguments, cbSDKEnvType: self.sdkType
         )
         
         
@@ -125,7 +127,7 @@ public class CBSDKHelper : NSObject{
             clientSecret: clientSecret,
             guId: GuiId,
             nidNumber: nid,
-            transactionAmount: transactionAmount
+            transactionAmount: transactionAmount, cbSDKEnvType: self.sdkType
         )
         
         
@@ -214,6 +216,10 @@ public class CBSDKHelper : NSObject{
                     DispatchQueue.main.async(execute: {
                         self.registraionVCcallback(arguments: call.arguments, result: result)
                     })
+                case .userCancelled:
+                    let uc = call.arguments as? [String: Any] ?? [:]
+                    self.delegate?.userCancelled?(message: uc["userCancelled"] as! String)
+                    result(uc["userCancelled"])
                     
                 }
                 
@@ -239,7 +245,7 @@ public class CBSDKHelper : NSObject{
         
     }
     
-    private func setupSDKPreferences() {
+    private func setupSDKPreferences(isShowVC: Bool = true) {
         guard flutterEngine == nil else {
             print("Flutter engine is already running.")
             return
@@ -256,19 +262,22 @@ public class CBSDKHelper : NSObject{
             name: self.CHANNEL,
             binaryMessenger: flutterEngine!.binaryMessenger
         )
-        DispatchQueue.main.async {
-            if self.sourceVC.presentedViewController == nil {
-                let flutterVC = FlutterViewController(engine: self.flutterEngine!, nibName: nil, bundle: nil)
-                flutterVC.modalPresentationStyle = .fullScreen
-                if #available(iOS 13, *) {
-                    flutterVC.isModalInPresentation = true
+        if isShowVC {
+            DispatchQueue.main.async {
+                if self.sourceVC.presentedViewController == nil {
+                    let flutterVC = FlutterViewController(engine: self.flutterEngine!, nibName: nil, bundle: nil)
+                    flutterVC.modalPresentationStyle = .fullScreen
+                    if #available(iOS 13, *) {
+                        flutterVC.isModalInPresentation = true
+                    }
+                    self.sourceVC.present(flutterVC, animated: true, completion: nil)
+                    flutterVC.presentationController?.delegate = self
+                } else {
+                    print("Another view controller is already presented.")
                 }
-                self.sourceVC.present(flutterVC, animated: true, completion: nil)
-                flutterVC.presentationController?.delegate = self
-            } else {
-                print("Another view controller is already presented.")
             }
         }
+        
     }
 }
 

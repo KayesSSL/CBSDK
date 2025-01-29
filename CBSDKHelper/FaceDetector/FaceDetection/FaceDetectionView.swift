@@ -11,7 +11,7 @@ class FaceDetectionView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: .zero)
-        backgroundColor  = UIColor(red: 0.13, green: 0.1, blue: 0.58, alpha: 1)
+        backgroundColor  = UIColor.themeColor
         addSubview(navigationView)
       
         navigationView.addAnchorToSuperview(leading: 0,trailing: 0, heightMultiplier: 0.08)
@@ -21,7 +21,7 @@ class FaceDetectionView: UIView {
         indicatorView.addAnchorToSuperview(widthMutiplier: 0.6,centeredHorizontally: 0,heightWidthRatio: 1.5)
           indicatorView.topAnchor.constraint(equalTo: navigationView.bottomAnchor,constant: 0).isActive = true
         
-        falseView.backgroundColor = UIColor(red: 0.13, green: 0.1, blue: 0.58, alpha: 1)
+        falseView.backgroundColor = UIColor.themeColor
        
         addSubview(falseView)
         falseView.addAnchorToSuperview(widthMutiplier: 0.58,heightWidthRatio: 1.5)
