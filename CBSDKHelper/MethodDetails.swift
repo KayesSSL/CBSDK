@@ -8,8 +8,9 @@ struct MethodDetails {
     var mobileNumber: String?
     var nidNumber: String?
     var transactionAmount: String?
-    var registrationArguments: RegistrationArguments?
+    var registrationArguments: CBRegistrationArguments?
     var cbSDKEnvType: CBSDKEnvironmentType
+    var languageCode: CBLanguageCode
 
     func toJson() -> [String: Any?] {
         var data: [String: Any?] = [
@@ -20,7 +21,8 @@ struct MethodDetails {
             "mobileNumber": mobileNumber,
             "nidNumber": nidNumber,
             "amount": transactionAmount,
-            "environmentType": cbSDKEnvType.toDisplayString()
+            "environmentType": cbSDKEnvType.toDisplayString(),
+            "languageCode": languageCode.getCode()
         ]
 
         if let registrationData = registrationArguments?.toJson() {
@@ -31,12 +33,12 @@ struct MethodDetails {
     }
 }
 
-public struct RegistrationArguments {
+public struct CBRegistrationArguments {
     var mobileNo: String?
     var nidNo: String?
     var dob: String?
-    var businessType: BusinessType?
-    var gender: Gender?
+    var businessType: CBBusinessType?
+    var gender: CBGender?
     var shopName: String?
     var emailAddress: String?
     var contactNo: String?
@@ -45,7 +47,7 @@ public struct RegistrationArguments {
     var tin: String?
     var bin: String?
     
-    public  init(mobileNo: String? = nil, nidNo: String? = nil, dob: String? = nil, businessType: BusinessType? = nil, gender: Gender? = nil, shopName: String? = nil, emailAddress: String? = nil, contactNo: String? = nil, tradeLicenseNo: String? = nil, tradeLicenseExp: String? = nil, tin: String? = nil, bin: String? = nil) {
+    public  init(mobileNo: String? = nil, nidNo: String? = nil, dob: String? = nil, businessType: CBBusinessType? = nil, gender: CBGender? = nil, shopName: String? = nil, emailAddress: String? = nil, contactNo: String? = nil, tradeLicenseNo: String? = nil, tradeLicenseExp: String? = nil, tin: String? = nil, bin: String? = nil) {
          self.mobileNo = mobileNo
          self.nidNo = nidNo
          self.dob = dob
@@ -80,7 +82,7 @@ public struct RegistrationArguments {
     }
 }
 
-public enum BusinessType: String {
+public enum CBBusinessType: String {
     case personal = "Personal"
     case business = "Business"
 
@@ -94,7 +96,7 @@ public enum BusinessType: String {
     }
 }
 
-public enum Gender: String {
+public enum CBGender: String {
     case male = "Male"
     case female = "Female"
     case other = "Other"
@@ -121,6 +123,20 @@ public enum CBSDKEnvironmentType {
             return "Live"
         case .testBox:
             return "TestBox"
+        }
+    }
+}
+
+public enum CBLanguageCode {
+    case EN, BN
+
+    func getCode() -> String {
+        switch self {
+        case .EN:
+            return "1"
+        case .BN:
+            return "0"
+
         }
     }
 }

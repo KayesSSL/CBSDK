@@ -59,7 +59,7 @@ public class CBSDKHelper : NSObject{
    
     
     
-    public  func  showBalance(isShowVC: Bool) { //callback: @escaping (String) -> Void
+    public  func  showBalance(isShowVC: Bool, langCode: CBLanguageCode = .EN) { //callback: @escaping (String) -> Void
         setupSDKPreferences(isShowVC: isShowVC)
         guard let flutterMethodChannel  = self.flutterMethodChannel  else { return }
 //        self.guidCallback = callback
@@ -70,7 +70,7 @@ public class CBSDKHelper : NSObject{
             guId: GuiId,
             mobileNumber: "",
             nidNumber: "",
-            transactionAmount: "", cbSDKEnvType: self.sdkType
+            transactionAmount: "", cbSDKEnvType: self.sdkType, languageCode: langCode
         )
         flutterMethodChannel.invokeMethod("initializeSdk", arguments: methodDetails.toJson()) { _ in
             
@@ -79,7 +79,7 @@ public class CBSDKHelper : NSObject{
         self.methodCall(methodChannel: flutterMethodChannel)
     }
     
-    public func linkAccount(mobile: String, nid:String, callback: @escaping (String) -> Void) {
+    public func linkAccount(mobile: String, nid:String, langCode: CBLanguageCode = .EN, callback: @escaping (String) -> Void) {
         setupSDKPreferences()
         guard let flutterMethodChannel  = self.flutterMethodChannel  else { return }
         self.guidCallback = callback
@@ -88,7 +88,7 @@ public class CBSDKHelper : NSObject{
             clientId: clientId,
             clientSecret: clientSecret,
             mobileNumber: mobile,
-            nidNumber: nid, cbSDKEnvType: self.sdkType
+            nidNumber: nid, cbSDKEnvType: self.sdkType, languageCode: langCode
         )
         flutterMethodChannel.invokeMethod("initializeSdk", arguments: methodDetails.toJson()) { _ in
             
@@ -97,7 +97,7 @@ public class CBSDKHelper : NSObject{
         self.methodCall(methodChannel: flutterMethodChannel)
     }
     
-    public func registration(registrationArguments: RegistrationArguments) {
+    public func registration(registrationArguments: CBRegistrationArguments, langCode: CBLanguageCode = .EN) {
         
         setupSDKPreferences()
         guard let flutterMethodChannel  = self.flutterMethodChannel  else { return }
@@ -105,7 +105,7 @@ public class CBSDKHelper : NSObject{
             methodName: "Registration",
             clientId: clientId,
             clientSecret: clientSecret,
-            registrationArguments: registrationArguments, cbSDKEnvType: self.sdkType
+            registrationArguments: registrationArguments, cbSDKEnvType: self.sdkType, languageCode: langCode
         )
         
         
@@ -118,7 +118,7 @@ public class CBSDKHelper : NSObject{
         
     }
     
-    public func transaction(nid: String, transactionAmount: String) {
+    public func transaction(nid: String, transactionAmount: String, langCode: CBLanguageCode = .EN) {
         setupSDKPreferences()
         guard let flutterMethodChannel  = self.flutterMethodChannel  else { return }
         let methodDetails = MethodDetails(
@@ -127,7 +127,7 @@ public class CBSDKHelper : NSObject{
             clientSecret: clientSecret,
             guId: GuiId,
             nidNumber: nid,
-            transactionAmount: transactionAmount, cbSDKEnvType: self.sdkType
+            transactionAmount: transactionAmount, cbSDKEnvType: self.sdkType, languageCode: langCode
         )
         
         
