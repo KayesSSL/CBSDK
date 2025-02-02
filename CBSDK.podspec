@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name             = 'CBSDK'
-  s.version          = '0.1.0'
+  s.version          = '0.1.1'
   s.summary          = 'CashBaba SDK for Better Cash transaction experience.'
   s.homepage         = 'https://github.com/KayesSSL/CBSDK.git'
   s.license          = { :type => 'GNU', :file => 'LICENSE' }
@@ -10,7 +10,7 @@ Pod::Spec.new do |s|
   
 
 
-  s.ios.deployment_target = '13.0'
+  s.ios.deployment_target = '12.0'
 
   s.subspec 'CBSDK' do |cbsdk| 
     cbsdk.vendored_frameworks = 'App.xcframework' 
