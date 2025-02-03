@@ -11,6 +11,8 @@ struct MethodDetails {
     var registrationArguments: CBRegistrationArguments?
     var cbSDKEnvType: CBSDKEnvironmentType
     var languageCode: CBLanguageCode
+    var referenceTransactionId: String?
+    var transactionRemarks: String?
 
     func toJson() -> [String: Any?] {
         var data: [String: Any?] = [
@@ -22,7 +24,9 @@ struct MethodDetails {
             "nidNumber": nidNumber,
             "amount": transactionAmount,
             "environmentType": cbSDKEnvType.toDisplayString(),
-            "languageCode": languageCode.getCode()
+            "languageCode": languageCode.getCode(),
+            "referenceTransactionId": referenceTransactionId,
+            "transactionRemarks": transactionRemarks
         ]
 
         if let registrationData = registrationArguments?.toJson() {

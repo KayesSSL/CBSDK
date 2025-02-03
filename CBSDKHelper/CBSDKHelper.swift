@@ -118,7 +118,7 @@ public class CBSDKHelper : NSObject{
         
     }
     
-    public func transaction(nid: String, transactionAmount: String, langCode: CBLanguageCode = .EN) {
+    public func transaction(nid: String, transactionAmount: String, referenceTransID: String, remarks: String? = "", langCode: CBLanguageCode = .EN) {
         setupSDKPreferences()
         guard let flutterMethodChannel  = self.flutterMethodChannel  else { return }
         let methodDetails = MethodDetails(
@@ -127,7 +127,9 @@ public class CBSDKHelper : NSObject{
             clientSecret: clientSecret,
             guId: GuiId,
             nidNumber: nid,
-            transactionAmount: transactionAmount, cbSDKEnvType: self.sdkType, languageCode: langCode
+            transactionAmount: transactionAmount, cbSDKEnvType: self.sdkType, languageCode: langCode,
+            referenceTransactionId: referenceTransID,
+            transactionRemarks: remarks
         )
         
         
