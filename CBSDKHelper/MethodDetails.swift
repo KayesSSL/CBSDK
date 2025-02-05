@@ -89,6 +89,7 @@ public struct CBRegistrationArguments {
 public enum CBBusinessType: String {
     case personal = "Personal"
     case business = "Business"
+    case undefined = "Undefined"
 
     func toDisplayString() -> String? {
         switch self {
@@ -96,6 +97,8 @@ public enum CBBusinessType: String {
             return "Personal Retail Account (PRA)"
         case .business:
             return "Business"
+        case .undefined:
+            return ""
         }
     }
 }

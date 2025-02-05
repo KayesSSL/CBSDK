@@ -12,7 +12,7 @@ import UIKit
 
 @objc public protocol CBSDKHelperDelegate: AnyObject {
     @objc optional func registrationSuccess(data: [String: Any])
-    @objc optional func accountLinkingSuccess(guId: String)
+    @objc optional func accountLinkingSuccess(guId: String, accountType: String)
     @objc optional func balanceRetrievalSuccess(balance: String)
     @objc optional func transactionSuccess(transactionDetails: [String: Any])
     @objc optional func didEncounterError(error: String)
@@ -170,10 +170,10 @@ public class CBSDKHelper : NSObject{
     
     private func linkSuccess(args : Any?, result: @escaping FlutterResult){
         if let arguments : [String: String] = args as? [String : String]{
-            print(arguments["guId"])
+            print("Link account sending \(arguments["guId"]) and Account Type \(arguments["accountType"])")
             guidCallback?(arguments["guId"] ?? "")
             result(arguments["guId"] ?? "")
-            delegate?.accountLinkingSuccess?(guId: arguments["guId"] ?? "")
+            delegate?.accountLinkingSuccess?(guId: arguments["guId"] ?? "", accountType: arguments["accountType"] ?? "")
         }
      
     }

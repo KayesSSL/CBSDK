@@ -10,19 +10,27 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		LuXWwnaVPSy5nWfG3ihKA4hyU0k=
+		DV+naNxOFFvbL8L+mMk9KM42upI=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		HpFsv78YHkW5t440UcYidpaxQKo=
+		RAhgo0LldRNdlx71NZxjXwBlGTI=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
-		GyVNpMFrA7g6ez5GzSNdhciof+Q=
+		bO/bY9QCnkQclM8lhAe48wVoq68=
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
 		hTSeItovpmFkZTv+hzdbeIsPNHk=
+		</data>
+		<key>flutter_assets/assets/font/Inter-Regular.ttf</key>
+		<data>
+		vRl2wfAZhTq2FD7xJG4lqmb9mQ4=
+		</data>
+		<key>flutter_assets/assets/font/NotoSans-Regular.ttf</key>
+		<data>
+		8EpQTiB41sAbO/RTwNGMT3fCEzs=
 		</data>
 		<key>flutter_assets/assets/font/Rebond_Grotesque_Bold.otf</key>
 		<data>
@@ -207,21 +215,21 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			6WIFHAnQrORxB65P2q+glOdLr/fseDEldrGe3qsqqbs=
+			RvxPnhEm+Uinw9hTmzW0RKY4l9611MZCwaCsswnyQhQ=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+E1/Tyvu0/pkIHVgF1gQ6AIEpvR6fkkz7337HALpiAs=
+			SF3mUCFqU7tdWL4WrU3tWwrXW/LgwYgXu/jxv+djj24=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			+FzAh07Vx+MeWffF5pDOKy6hXCdNn+/b/vtIrYMPzB4=
+			GkG6EJo431zVkxMVubfVadF6Nq597PwfMSDQW+SnQCM=
 			</data>
 		</dict>
 		<key>flutter_assets/NOTICES.Z</key>
@@ -229,6 +237,20 @@
 			<key>hash2</key>
 			<data>
 			RQPTBRbR36GZdm4qJ4e0NaV4/pwhL/UFCV535c+r8KE=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/font/Inter-Regular.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			Pl+QoBOLON5M9Nd5rXg5GXTqHfd2uRZIQr3Ltgzjg8U=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/font/NotoSans-Regular.ttf</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			/owCL0jY3Snxe3RNFvk0b0NX4W99T3vliwAK58KRthQ=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/font/Rebond_Grotesque_Bold.otf</key>
