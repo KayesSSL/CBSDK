@@ -10,11 +10,11 @@
 		</data>
 		<key>flutter_assets/AssetManifest.bin</key>
 		<data>
-		DV+naNxOFFvbL8L+mMk9KM42upI=
+		m8Aj0drsuUef7ZzUw6Fd+zAILmU=
 		</data>
 		<key>flutter_assets/AssetManifest.json</key>
 		<data>
-		RAhgo0LldRNdlx71NZxjXwBlGTI=
+		c/SagewyNLYT4lm+oeltRnAzq3A=
 		</data>
 		<key>flutter_assets/FontManifest.json</key>
 		<data>
@@ -22,7 +22,7 @@
 		</data>
 		<key>flutter_assets/NOTICES.Z</key>
 		<data>
-		hTSeItovpmFkZTv+hzdbeIsPNHk=
+		x2/EwyEOx+ROnIPmc9MHgujiWuw=
 		</data>
 		<key>flutter_assets/assets/font/Inter-Regular.ttf</key>
 		<data>
@@ -172,6 +172,10 @@
 		<data>
 		GGZW9BhPX/pzCk4g2SdHV204g/s=
 		</data>
+		<key>flutter_assets/assets/svg/pinLock.svg</key>
+		<data>
+		NIoqAhCVx/zXIwVNYN502gyFyl4=
+		</data>
 		<key>flutter_assets/assets/svg/selected_checkbox.svg</key>
 		<data>
 		i4yBJdqUUIUCeAU1yboYyvdoPZk=
@@ -215,14 +219,14 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RvxPnhEm+Uinw9hTmzW0RKY4l9611MZCwaCsswnyQhQ=
+			6KxzOCX2zBAUimvHGK/Fo/srwu+VrnibZ9dMf0XJmHs=
 			</data>
 		</dict>
 		<key>flutter_assets/AssetManifest.json</key>
 		<dict>
 			<key>hash2</key>
 			<data>
-			SF3mUCFqU7tdWL4WrU3tWwrXW/LgwYgXu/jxv+djj24=
+			q+qu7ABiYLXWX8V2KqE7+tH2ovkW+lZOmb0WwVXhOAE=
 			</data>
 		</dict>
 		<key>flutter_assets/FontManifest.json</key>
@@ -236,7 +240,7 @@
 		<dict>
 			<key>hash2</key>
 			<data>
-			RQPTBRbR36GZdm4qJ4e0NaV4/pwhL/UFCV535c+r8KE=
+			/lUcn+P2UhbqR+EVgetfTLXnkMQ+OO58aRhnJemtO8o=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/font/Inter-Regular.ttf</key>
@@ -496,6 +500,13 @@
 			<key>hash2</key>
 			<data>
 			9nast8NmCo2ByiHhKxUVsEpmR9Y657lI26blBBqXK7Q=
+			</data>
+		</dict>
+		<key>flutter_assets/assets/svg/pinLock.svg</key>
+		<dict>
+			<key>hash2</key>
+			<data>
+			JezqvIKj/SgFbmyqfLQB35Gb38YIu3YRUzKQ4JriIz0=
 			</data>
 		</dict>
 		<key>flutter_assets/assets/svg/selected_checkbox.svg</key>
